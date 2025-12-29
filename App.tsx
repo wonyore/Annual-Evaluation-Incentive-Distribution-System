@@ -491,10 +491,6 @@ const TemplateManager: React.FC<any> = ({ templates, onUpdate, onDeleteTemplate 
     onUpdate([...nextTemplates]);
   };
 
-  const handleDeleteTemplate = (id: string) => {
-    onDeleteTemplate(id);
-  };
-
   const handleL3Change = (l2Id: string, l3Id: string, updates: Partial<L3Index>) => {
     if (!editingTemplate) return;
     const newL2s = editingTemplate.l2Indices.map((l2: any) => {
@@ -549,7 +545,7 @@ const TemplateManager: React.FC<any> = ({ templates, onUpdate, onDeleteTemplate 
               />
             </div>
             <button 
-              onClick={() => handleDeleteTemplate(editingTemplate.id)} 
+              onClick={() => onDeleteTemplate(editingTemplate.id)} 
               className="p-3 text-rose-500 hover:bg-rose-100 rounded-2xl transition-all border border-transparent hover:border-rose-200 group active:scale-90" 
               title="删除此评价模板"
             >
@@ -714,12 +710,6 @@ const ScoringView: React.FC<any> = ({ examinees, templates, evaluations, onSave,
           <p className="text-slate-500 font-medium">请选择对应的评价模板并对人员进行维度打分（0-10分）</p>
         </div>
         <div className="flex flex-col md:flex-row gap-3 w-full md:w-auto">
-          <div className="relative flex-1 md:w-52">
-            <ListChecks className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-            <select className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-2xl font-bold text-sm focus:outline-none appearance-none shadow-sm cursor-pointer" value={selectedTemplateId} onChange={e => setSelectedTemplateId(e.target.value)}>
-              {templates.map((t: any) => <option key={t.id} value={t.id}>{t.name}</option>)}
-            </select>
-          </div>
           <div className="relative flex-1 md:w-60">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <select className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-2xl font-black text-sm focus:outline-none appearance-none shadow-sm cursor-pointer" value={selectedExamineeId || ''} onChange={e => setSelectedExamineeId(e.target.value)}>
