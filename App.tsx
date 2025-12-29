@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
   Users, Settings, ClipboardCheck, Plus, Trash2, Edit3, 
@@ -535,24 +534,6 @@ const TemplateManager: React.FC<any> = ({ templates, onUpdate, onDeleteTemplate 
 
       {editingTemplate && (
         <div className="space-y-8">
-          <div className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex items-center justify-between gap-6 hover:shadow-md transition-shadow">
-            <div className="flex-1 space-y-1">
-              <label className="block text-[10px] font-black text-slate-400 uppercase tracking-widest">模板名称编辑</label>
-              <input 
-                className="w-full bg-transparent text-xl font-black text-slate-800 focus:outline-none border-b-2 border-transparent focus:border-indigo-200 transition-all py-1" 
-                value={editingTemplate.name} 
-                onChange={e => handleUpdateTemplate({...editingTemplate, name: e.target.value})} 
-              />
-            </div>
-            <button 
-              onClick={() => onDeleteTemplate(editingTemplate.id)} 
-              className="p-3 text-rose-500 hover:bg-rose-100 rounded-2xl transition-all border border-transparent hover:border-rose-200 group active:scale-90" 
-              title="删除此评价模板"
-            >
-              <Trash2 className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </button>
-          </div>
-
           <div className="grid grid-cols-1 gap-10">
             {editingTemplate.l2Indices.map((l2: any) => {
               const l3Sum = l2.l3Indices.reduce((s: number, l3: any) => s + l3.weight, 0);
