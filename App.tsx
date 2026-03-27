@@ -211,7 +211,7 @@ const App: React.FC = () => {
         </div>
         
         <footer className="w-full py-6 text-center text-slate-400 text-[10px] font-medium border-t border-slate-200 bg-white/50">
-          ©2025 Created by ZJULAB AI Team
+          ©2025 Created by WonYore
         </footer>
       </main>
     </div>
